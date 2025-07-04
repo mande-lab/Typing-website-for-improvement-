@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Racer | Enhanced Racing Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-keyboard"></i> Typing Racer</h1>
+            <p class="subtitle">Race against supercars by typing fast and accurately! Watch your car speed up as you type.</p>
+        </header>
+        
+        <div class="game-controls">
+            <button id="startBtn" class="btn btn-primary">
+                <i class="fas fa-play"></i> Start Race
+            </button>
+            <button id="restartBtn" class="btn btn-secondary">
+                <i class="fas fa-sync-alt"></i> Restart
+            </button>
+        </div>
+        
+        <div class="game-modes">
+            <button class="mode-btn active" data-mode="race">Race Mode</button>
+            <button class="mode-btn" data-mode="timed">Timed Mode</button>
+        </div>
+        
+        <div id="timeSelector" class="time-selector">
+            <button class="time-btn" data-time="5">5s</button>
+            <button class="time-btn" data-time="10">10s</button>
+            <button class="time-btn" data-time="15">15s</button>
+            <button class="time-btn" data-time="30">30s</button>
+            <button class="time-btn" data-time="60">60s</button>
+        </div>
+        
+        <div class="game-area">
+            <div class="race-track-container">
+                <h2><i class="fas fa-flag-checkered"></i> Racing Arena</h2>
+                <div class="race-track">
+                    <div class="finish-line"></div>
+                    <div class="lane"><div class="lane-marker"></div></div>
+                    <div class="lane"><div class="lane-marker"></div></div>
+                    <div class="lane"><div class="lane-marker"></div></div>
+                    <div id="playerCar" class="car player">YOU</div>
+                    <div id="ferrari" class="car ai">FERRARI</div>
+                    <div id="porsche" class="car ai">PORSCHE</div>
+                    <div id="lambo" class="car ai">LAMBORGHINI</div>
+                    
+                    <div class="timer-display" id="timerDisplay">00.00s</div>
+                    <div class="position-indicator" id="positionIndicator">1st</div>
+                </div>
+                
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-value" id="wpmStat">0</div>
+                        <div class="stat-label">Words Per Minute</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="accuracyStat">100%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="timeStat">0.00s</div>
+                        <div class="stat-label">Time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="progressStat">0%</div>
+                        <div class="stat-label">Progress</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="typing-container">
+                <h2><i class="fas fa-keyboard"></i> Typing Area</h2>
+                <div id="prompt"></div>
+                <textarea 
+                    id="input" 
+                    placeholder="Start typing here to make your car move..." 
+                    disabled
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                ></textarea>
+            </div>
+        </div>
+        
+        <div class="play-again-container">
+            <button id="playAgainBtn" class="btn btn-primary">
+                <i class="fas fa-redo"></i> Play Again
+            </button>
+        </div>
+        
+        <footer>
+            <p>Typing Racer Game | Practice typing while racing against supercars | Created with HTML, CSS & JavaScript</p>
+        </footer>
+        
+        <!-- Results Modal -->
+        <div id="resultsModal" class="modal">
+            <div class="modal-content">
+                <h2><i class="fas fa-trophy"></i> Race Results</h2>
+                <div class="winner" id="winner">You Win!</div>
+                
+                <div class="results-stats">
+                    <div class="result-stat">
+                        <div class="result-value" id="finalWpm">0</div>
+                        <div class="result-label">Words Per Minute</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-value" id="finalAccuracy">100%</div>
+                        <div class="result-label">Accuracy</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-value" id="finalTime">0.00s</div>
+                        <div class="result-label">Time</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-value" id="finalRank">1st</div>
+                        <div class="result-label">Position</div>
+                    </div>
+                </div>
+                
+                <!-- Rank Display -->
+                <div class="rank-display" id="rankDisplay">
+                    <div class="rank-medal">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="rank-text">
+                        You finished <span id="rankPosition">1st</span> place!
+                    </div>
+                </div>
+                
+                <!-- PLAY AGAIN BUTTON IN RESULTS MODAL -->
+                <div class="play-again-container">
+                    <button id="modalPlayAgainBtn" class="btn btn-primary">
+                        <i class="fas fa-redo"></i> Play Again
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
